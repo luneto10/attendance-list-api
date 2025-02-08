@@ -6,22 +6,22 @@ import {
     deleteStudent,
     deleteStudents,
     createStudent,
-} from "../controller/student";
+} from "../controller/student.controller";
 
 const router = express.Router();
 
-router.post("/", createStudent);
-
 // router.get("/info", getInfo);
 
-router.get("/", getStudents);
+router
+    .route("/")
+    .get(getStudents)
+    .post(createStudent)
+    .delete(deleteStudents);
 
-router.get("/:id", getStudent);
-
-router.put("/:id", updateStudent);
-
-router.delete("/:id", deleteStudent);
-
-router.delete("/", deleteStudents);
+router
+    .route("/:id")
+    .get(getStudent)
+    .put(updateStudent)
+    .delete(deleteStudent);
 
 export default router;

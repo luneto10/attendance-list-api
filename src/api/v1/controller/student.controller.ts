@@ -1,5 +1,5 @@
-import { isMobile } from "../../helpers/deviceUtils";
-import { Student } from "../../model/student.model";
+import { isMobile } from "../utils/deviceUtils";
+import { Student } from "../model/student.model";
 import express from "express";
 
 export const getStudents = async (

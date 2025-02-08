@@ -4,9 +4,8 @@ import helmet from "helmet";
 import cors from "cors";
 
 import * as middlewares from "./middlewares";
-import api from "./api";
-import MessageResponse from "./interfaces/MessageResponse";
-import studentRouter from "./api/routes/student";
+import MessageResponse from "./api/v1/interfaces/MessageResponse";
+import studentRouter from "./api/v1/routes/student.route";
 
 require("dotenv").config();
 
@@ -17,9 +16,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/student", studentRouter);
-
-app.use("/api/v1", api);
+app.use("/api/v1/students", studentRouter);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
