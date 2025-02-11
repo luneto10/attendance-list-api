@@ -19,6 +19,7 @@
     },
     "license": "MIT",
     "dependencies": {
+        "chalk": "^5.4.1",
         "cors": "^2.8.5",
         "dotenv": "^16.4.5",
         "express": "^4.21.1",
@@ -26,9 +27,12 @@
         "helmet": "^8.0.0",
         "mongoose": "^8.10.0",
         "morgan": "^1.10.0",
+        "reflect-metadata": "^0.2.2",
         "swagger-jsdoc": "^6.2.8",
         "swagger-ui-express": "^5.0.1",
-        "ua-parser-js": "^2.0.1"
+        "tsyringe": "^4.8.0",
+        "ua-parser-js": "^2.0.1",
+        "winston": "^3.17.0"
     },
     "devDependencies": {
         "@types/cors": "^2.8.17",

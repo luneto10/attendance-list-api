@@ -1,14 +1,17 @@
-require("dotenv").config();
 import app from "./app";
-import swaggerDocs from "./api/v1/utils/swagger";
-import connect from "./configs/mongodb.config";
+import { MongoDBConnector } from "./config/mongodb.config";
 
 const port = process.env.PORT || 3000;
+const dbConnector = new MongoDBConnector();
 
 app.listen(port, async () => {
-    console.log(`Server is running on port ${port}`);
-
-    await connect();
-
-    swaggerDocs(app, port);
+    console.log(`Server is running on port http://localhost:${port}`);
+    try {
+        await dbConnector.connect();
+    } catch (error) {
+        console.error(
+            "Failed to start the server because the database connection failed."
+        );
+        process.exit(1);
+    }
 });
